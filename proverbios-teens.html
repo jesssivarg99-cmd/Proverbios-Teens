@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Proverbio sorpresa</title>
+<style>
+  body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;
+  font-family:Arial,sans-serif;background:linear-gradient(135deg,#f7f3ea,#e9f1ec);color:#26352f;padding:20px}
+  .card{max-width:520px;width:100%;background:white;border-radius:28px;padding:30px;
+  box-shadow:0 12px 35px rgba(0,0,0,.12);text-align:center}
+  .tag{font-size:14px;letter-spacing:2px;text-transform:uppercase;color:#6d8177}
+  h1{font-size:30px;margin:10px 0 22px}
+  .ref{font-size:22px;font-weight:bold;margin:12px 0}
+  .verse{font-size:20px;line-height:1.55;font-style:italic}
+  .question{margin-top:24px;padding:18px;background:#f3f6f2;border-radius:18px;font-size:18px;line-height:1.5}
+  button{margin-top:22px;border:0;border-radius:14px;padding:14px 20px;font-size:17px;
+  font-weight:bold;background:#d9a441;color:#fff;cursor:pointer}
+  .small{margin-top:18px;font-size:13px;color:#718078}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="tag">Teens · Proverbio sorpresa</div>
+  <h1>📖 ¿Qué te quiere enseñar hoy?</h1>
+  <div id="content"></div>
+  <button onclick="nuevo()">🎲 Otro Proverbio</button>
+  <div class="small">Leé, pensá y elegí una forma concreta de aplicarlo.</div>
+</div>
+<script>
+const proverbios = [
+["Proverbios 3:5-6","Confiá en Dios de todo corazón y reconocelo en tus caminos; Él puede dirigir tus pasos.","¿En qué situación necesitás confiar más en Dios en vez de querer tener todo bajo control?"],
+["Proverbios 4:23","Cuidá tu corazón con atención, porque de él brota la manera en que vivís.","¿Qué estás dejando entrar en tu corazón que necesitás cuidar mejor?"],
+["Proverbios 10:12","El amor busca cubrir y restaurar, mientras el odio alimenta los conflictos.","¿Hay algún conflicto que podrías intentar resolver desde el amor?"],
+["Proverbios 11:25","Quien ayuda y bendice a otros también experimenta bendición.","¿A quién podrías ayudar esta semana sin esperar nada a cambio?"],
+["Proverbios 12:18","Las palabras dichas sin cuidado pueden herir; las palabras sabias pueden sanar.","¿Qué palabras podrías usar para sanar o animar a alguien?"],
+["Proverbios 13:20","Las personas con quienes caminás influyen en lo que llegás a ser.","¿Tus amistades te están ayudando a crecer como la persona que querés ser?"],
+["Proverbios 14:29","La paciencia demuestra comprensión; reaccionar con enojo fácilmente trae problemas.","¿Qué situación necesitás aprender a responder con más paciencia?"],
+["Proverbios 15:1","Una respuesta amable puede calmar una situación tensa.","¿En qué situación reciente podrías haber respondido con más calma?"],
+["Proverbios 15:22","Los planes pueden mejorar cuando escuchamos buenos consejos.","¿A quién podrías pedirle consejo sobre algo que estás intentando decidir?"],
+["Proverbios 16:3","Poné tus proyectos en las manos de Dios y confiá en su dirección.","¿Qué preocupación, decisión o proyecto necesitás entregarle a Dios?"],
+["Proverbios 16:24","Las palabras amables pueden ser como algo dulce y saludable para quien las recibe.","¿A quién podrías animar hoy con una palabra sincera?"],
+["Proverbios 17:17","Un amigo verdadero permanece presente también en los momentos difíciles.","¿Cómo podrías demostrarle a alguien que puede contar con vos?"],
+["Proverbios 18:21","Las palabras tienen poder para construir o destruir.","¿Qué tipo de palabras querés que las personas recuerden de vos?"],
+["Proverbios 19:20","Escuchar consejos y aceptar corrección ayuda a crecer en sabiduría.","¿Hay algún consejo que te cueste aceptar? ¿Por qué?"],
+["Proverbios 20:22","No hace falta devolver el mal; podés esperar y actuar de una manera correcta.","¿Cómo podrías responder de forma diferente cuando alguien te lastima?"],
+["Proverbios 21:5","Los planes constantes y responsables conducen mejor que actuar impulsivamente.","¿Qué pequeño hábito podrías empezar para acercarte a una meta?"],
+["Proverbios 22:6","La formación que recibimos desde pequeños puede marcar nuestro camino.","¿Qué enseñanza recibida de alguien importante todavía influye en vos?"],
+["Proverbios 25:28","Una persona sin dominio propio queda expuesta y vulnerable.","¿En qué área necesitás practicar más autocontrol?"],
+["Proverbios 27:17","Las personas pueden ayudarse mutuamente a crecer y mejorar.","¿Quién te ayuda a crecer y qué aprendés de esa persona?"],
+["Proverbios 31:8-9","Defendé a quienes necesitan ayuda y usá tu voz para actuar con justicia.","¿Hay alguien a tu alrededor que necesita que lo defiendas, escuches o ayudes?"]
+];
+let ultimo=-1;
+function nuevo(){
+  let i;
+  do{i=Math.floor(Math.random()*proverbios.length)}while(proverbios.length>1 && i===ultimo);
+  ultimo=i;
+  const p=proverbios[i];
+  document.getElementById("content").innerHTML=
+    `<div class="ref">${p[0]}</div><div class="verse">“${p[1]}”</div>
+     <div class="question"><b>💭 ¿Cómo lo aplicarías?</b><br><br>${p[2]}</div>`;
+}
+nuevo();
+</script>
+</body>
+</html>
